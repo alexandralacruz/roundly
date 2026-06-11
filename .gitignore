@@ -1,0 +1,13 @@
+# Android / Gradle (no necesario para la app web)
+.gradle/
+gradle/
+.idea/
+app/
+build.gradle
+settings.gradle
+local.properties
+nul
+
+# Sistema operativo
+Thumbs.db
+.DS_Store
