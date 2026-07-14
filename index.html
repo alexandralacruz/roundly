@@ -4,20 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FitTimer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@500;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <main class="app-shell">
       <section class="setup-panel" aria-labelledby="app-title">
         <div class="brand-row">
-          <div class="mark" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+          <img class="brand-logo" src="assets/logo.png" alt="FitTimer logo" width="96" height="96">
           <div>
+            <p class="eyebrow">Temporizador de intervalos</p>
             <h1 id="app-title">FitTimer</h1>
-            <p>Intervalos para series, descansos y cambios de ejercicio.</p>
+            <p class="tagline">entrena, supérate, evoluciona</p>
           </div>
         </div>
 
@@ -77,6 +77,32 @@
         <div class="countdown-wrap" aria-label="Tiempo restante">
           <svg class="progress-ring" viewBox="0 0 220 220" aria-hidden="true">
             <circle class="ring-track" cx="110" cy="110" r="101"></circle>
+            <g class="ring-ticks">
+              <line class="tick-major" x1="210.0" y1="110.0" x2="200.0" y2="110.0"></line>
+              <line class="tick-minor" x1="206.6" y1="135.9" x2="201.8" y2="134.6"></line>
+              <line class="tick-minor" x1="196.6" y1="160.0" x2="192.3" y2="157.5"></line>
+              <line class="tick-minor" x1="180.7" y1="180.7" x2="177.2" y2="177.2"></line>
+              <line class="tick-minor" x1="160.0" y1="196.6" x2="157.5" y2="192.3"></line>
+              <line class="tick-minor" x1="135.9" y1="206.6" x2="134.6" y2="201.8"></line>
+              <line class="tick-major" x1="110.0" y1="210.0" x2="110.0" y2="200.0"></line>
+              <line class="tick-minor" x1="84.1" y1="206.6" x2="85.4" y2="201.8"></line>
+              <line class="tick-minor" x1="60.0" y1="196.6" x2="62.5" y2="192.3"></line>
+              <line class="tick-minor" x1="39.3" y1="180.7" x2="42.8" y2="177.2"></line>
+              <line class="tick-minor" x1="23.4" y1="160.0" x2="27.7" y2="157.5"></line>
+              <line class="tick-minor" x1="13.4" y1="135.9" x2="18.2" y2="134.6"></line>
+              <line class="tick-major" x1="10.0" y1="110.0" x2="20.0" y2="110.0"></line>
+              <line class="tick-minor" x1="13.4" y1="84.1" x2="18.2" y2="85.4"></line>
+              <line class="tick-minor" x1="23.4" y1="60.0" x2="27.7" y2="62.5"></line>
+              <line class="tick-minor" x1="39.3" y1="39.3" x2="42.8" y2="42.8"></line>
+              <line class="tick-minor" x1="60.0" y1="23.4" x2="62.5" y2="27.7"></line>
+              <line class="tick-minor" x1="84.1" y1="13.4" x2="85.4" y2="18.2"></line>
+              <line class="tick-major" x1="110.0" y1="10.0" x2="110.0" y2="20.0"></line>
+              <line class="tick-minor" x1="135.9" y1="13.4" x2="134.6" y2="18.2"></line>
+              <line class="tick-minor" x1="160.0" y1="23.4" x2="157.5" y2="27.7"></line>
+              <line class="tick-minor" x1="180.7" y1="39.3" x2="177.2" y2="42.8"></line>
+              <line class="tick-minor" x1="196.6" y1="60.0" x2="192.3" y2="62.5"></line>
+              <line class="tick-minor" x1="206.6" y1="84.1" x2="201.8" y2="85.4"></line>
+            </g>
             <circle id="ring-progress" class="ring-progress" cx="110" cy="110" r="101"></circle>
           </svg>
           <div class="time-stack">

@@ -11,3 +11,5 @@ nul
 # Sistema operativo
 Thumbs.db
 .DS_Store
+
+temp/
