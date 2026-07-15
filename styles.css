@@ -90,6 +90,44 @@ button {
   pointer-events: none;
 }
 
+/* ---------- language tab ---------- */
+
+.lang-tab {
+  position: absolute;
+  top: 14px;
+  right: 22px;
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.lang-option {
+  min-width: 40px;
+  height: 32px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.lang-option:hover {
+  color: var(--text);
+  background: rgba(244, 239, 225, 0.06);
+}
+
+.lang-option.is-active {
+  background: var(--work);
+  color: var(--work-ink);
+}
+
 /* ---------- brand ---------- */
 
 .brand-row {
@@ -139,7 +177,7 @@ p {
 
 h1 {
   font-family: var(--display-font);
-  text-transform: uppercase;
+  text-transform: none;
   font-size: clamp(2.6rem, 7vw, 5.4rem);
   line-height: 0.88;
   letter-spacing: 0.01em;
@@ -560,5 +598,99 @@ body.timer-running .setup-panel {
   .ring-progress,
   .primary-action {
     transition: none;
+  }
+}
+
+/* ---------- preset row ---------- */
+
+.preset-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.preset-chip {
+  flex: 1;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--panel-strong);
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.85rem;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.preset-chip:hover {
+  border-color: var(--work);
+}
+
+.preset-chip.is-active {
+  background: var(--work);
+  color: var(--work-ink);
+  border-color: var(--work);
+}
+
+/* ---------- cycle groups ---------- */
+
+.cycle-group {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.cycle-group-label {
+  color: var(--work);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.cycle-group .settings-grid {
+  gap: 12px;
+}
+
+.cycle-connector {
+  text-align: center;
+  color: var(--rest);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 4px 0 14px;
+}
+
+/* ---------- live summary ---------- */
+
+.live-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 58px;
+  border: 1px dashed var(--line);
+  border-radius: 4px;
+  padding: 0 16px;
+  margin-bottom: 14px;
+  background: rgba(29, 27, 18, 0.6);
+}
+
+.live-summary span:first-child {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.live-summary strong {
+  font-family: var(--mono-font);
+  font-size: 1.3rem;
+  color: var(--work);
+}
+
+@media (max-width: 520px) {
+  .preset-row {
+    flex-direction: column;
   }
 }

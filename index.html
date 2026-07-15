@@ -3,73 +3,104 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FitTimer</title>
+    <title>Roundly — Interval Timer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@500;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <main class="app-shell">
+    <main class="app-shell" id="appShell">
+      <!-- ====== PANEL DE CONFIGURACIÓN ====== -->
       <section class="setup-panel" aria-labelledby="app-title">
+        <!-- Language tab -->
+        <div class="lang-tab" id="langTab">
+          <button class="lang-option is-active" data-lang="es" type="button">ES</button>
+          <button class="lang-option" data-lang="en" type="button">EN</button>
+        </div>
+
         <div class="brand-row">
-          <img class="brand-logo" src="assets/logo.png" alt="FitTimer logo" width="96" height="100">
+          <img class="brand-logo" src="assets/logo.png" alt="Roundly logo" width="96" height="96">
           <div>
-            <p class="eyebrow">Temporizador de intervalos</p>
-            <h1 id="app-title">FitTimer</h1>
-            <p class="tagline">entrena, supérate, evoluciona</p>
+            <p class="eyebrow" data-i18n="eyebrow">Temporizador de intervalos</p>
+            <h1 id="app-title">Roundly</h1>
+            <p class="tagline" data-i18n="tagline">entrena . supérate . evoluciona</p>
           </div>
         </div>
 
-        <form id="timer-form" class="settings-grid">
-          <label>
-            <span>Ejercicio</span>
-            <input id="work-seconds" type="number" min="1" max="3600" value="45" inputmode="numeric">
-            <small>segundos por serie</small>
-          </label>
+        <!-- Presets -->
+        <div class="preset-row" id="presetRow">
+          <button class="preset-chip is-active" data-preset="tabata" data-work="20" data-rest="10" data-longrest="60" data-reps="8" data-series="1" data-rounds="1">Tabata 20/10</button>
+          <button class="preset-chip" data-preset="hiit" data-work="45" data-rest="15" data-longrest="60" data-reps="4" data-series="3" data-rounds="1">HIIT 45/15</button>
+          <button class="preset-chip" data-preset="custom" data-i18n="custom">Personalizado</button>
+        </div>
 
-          <label>
-            <span>Descanso corto</span>
-            <input id="rest-seconds" type="number" min="0" max="3600" value="15" inputmode="numeric">
-            <small>entre repeticiones</small>
-          </label>
+        <!-- Ciclo 1 -->
+        <div class="cycle-group">
+          <div class="cycle-group-label" data-i18n="cycle1">Un ciclo se repite varias veces</div>
+          <div class="settings-grid">
+            <label>
+              <span data-i18n="work">Ejercicio</span>
+              <input id="work-seconds" type="number" min="1" max="3600" value="45" inputmode="numeric">
+              <small data-i18n="workSmall">Segundos por serie</small>
+            </label>
+            <label>
+              <span data-i18n="rest">Descanso corto</span>
+              <input id="rest-seconds" type="number" min="0" max="3600" value="15" inputmode="numeric">
+              <small data-i18n="restSmall">Entre repeticiones</small>
+            </label>
+            <label>
+              <span data-i18n="reps">Repeticiones</span>
+              <input id="repetitions" type="number" min="1" max="99" value="4" inputmode="numeric">
+              <small data-i18n="repsSmall">Por ejercicio</small>
+            </label>
+          </div>
+        </div>
 
-          <label>
-            <span>Repeticiones</span>
-            <input id="repetitions" type="number" min="1" max="99" value="4" inputmode="numeric">
-            <small>por ejercicio</small>
-          </label>
+        <div class="cycle-connector" data-i18n="connector">↓ luego un descanso largo ↓</div>
 
-          <label>
-            <span>Descanso largo</span>
-            <input id="long-rest-seconds" type="number" min="0" max="7200" value="60" inputmode="numeric">
-            <small>para cambiar de ejercicio</small>
-          </label>
+        <!-- Ciclo 2 -->
+        <div class="cycle-group">
+          <div class="cycle-group-label" data-i18n="cycle2">Ese bloque se repite en series y rondas</div>
+          <div class="settings-grid">
+            <label>
+              <span data-i18n="longRest">Descanso largo</span>
+              <input id="long-rest-seconds" type="number" min="0" max="7200" value="60" inputmode="numeric">
+              <small data-i18n="longRestSmall">Para cambiar de ejercicio</small>
+            </label>
+            <label>
+              <span data-i18n="series">Series</span>
+              <input id="exercise-count" type="number" min="1" max="99" value="3" inputmode="numeric">
+              <small data-i18n="seriesSmall">Por ronda</small>
+            </label>
+            <label>
+              <span data-i18n="rounds">Rondas</span>
+              <input id="round-count" type="number" min="1" max="99" value="1" inputmode="numeric">
+              <small data-i18n="roundsSmall">Bloques completos</small>
+            </label>
+          </div>
+        </div>
 
-          <label>
-            <span>Series</span>
-            <input id="exercise-count" type="number" min="1" max="99" value="3" inputmode="numeric">
-            <small>por ronda</small>
-          </label>
+        <!-- Resumen -->
+        <div class="live-summary">
+          <span data-i18n="duration">Duración total estimada</span>
+          <strong id="totalDuration">—</strong>
+        </div>
 
-          <label>
-            <span>Rondas</span>
-            <input id="round-count" type="number" min="1" max="99" value="1" inputmode="numeric">
-            <small>bloques completos</small>
-          </label>
-
+        <!-- Footer -->
+        <div class="settings-grid">
           <label class="toggle-row">
             <input id="sound-enabled" type="checkbox" checked>
-            <span>Sonidos de cambio</span>
+            <span data-i18n="sounds">Sonidos de cambio</span>
           </label>
-
-          <button class="primary-action" type="submit">Iniciar entrenamiento</button>
-        </form>
+          <button class="primary-action" id="startBtn" type="button" data-i18n="start">Iniciar entrenamiento</button>
+        </div>
       </section>
 
+      <!-- ====== PANTALLA DEL TEMPORIZADOR ====== -->
       <section class="timer-stage" aria-live="polite">
         <div class="stage-top">
-          <button id="back-button" class="icon-button" type="button" aria-label="Volver a configurar">←</button>
+          <button id="back-button" class="icon-button" type="button" aria-label="Volver">←</button>
           <div class="phase-pill" id="phase-pill">Listo</div>
           <button id="fullscreen-button" class="icon-button" type="button" aria-label="Pantalla completa">⛶</button>
         </div>
@@ -114,15 +145,15 @@
 
         <div class="progress-board">
           <div>
-            <span>Repetición</span>
+            <span data-i18n="repLabel">Repetición</span>
             <strong id="rep-display">1/4</strong>
           </div>
           <div>
-            <span>Ejercicio</span>
+            <span data-i18n="exerciseLabel">Ejercicio</span>
             <strong id="exercise-display">1/3</strong>
           </div>
           <div>
-            <span>Ronda</span>
+            <span data-i18n="roundLabel">Ronda</span>
             <strong id="round-display">1/1</strong>
           </div>
         </div>
