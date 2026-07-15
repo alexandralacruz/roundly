@@ -11,8 +11,8 @@
   --muted: #9d9581;
   --line: #3b3624;
   --line-soft: #2a2718;
-  --work: #ff5a1f;
-  --work-ink: #1a0d05;
+  --work: #60e318;
+  --work-ink: #0c1f03;
   --rest: #3fc7bf;
   --long-rest: #ffc94a;
   --danger: #ff5b52;
@@ -46,7 +46,7 @@ body {
       transparent 1px,
       transparent 40px
     ),
-    radial-gradient(circle at 14% 12%, rgba(255, 90, 31, 0.14), transparent 32rem),
+    radial-gradient(circle at 14% 12%, rgba(96, 227, 24, 0.14), transparent 32rem),
     radial-gradient(circle at 90% 82%, rgba(63, 199, 191, 0.12), transparent 26rem),
     var(--bg);
   color: var(--text);
@@ -239,14 +239,14 @@ button:focus-visible {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 1rem;
-  box-shadow: 0 10px 24px rgba(255, 90, 31, 0.25);
+  box-shadow: 0 10px 24px rgba(96, 227, 24, 0.25);
   transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
 }
 
 .primary-action:hover {
-  background: #ff6c38;
+  background: #7bec3d;
   transform: translateY(-1px);
-  box-shadow: 0 14px 30px rgba(255, 90, 31, 0.32);
+  box-shadow: 0 14px 30px rgba(96, 227, 24, 0.32);
 }
 
 .primary-action:active {
